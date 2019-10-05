@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="spacing_triple">32dp</dimen>
+    <dimen name="spacing_XLarge">64dp</dimen>
+    <dimen name="edittext_radius">35dp</dimen>
+    <dimen name="editText_heigh">52dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_double">16dp</dimen>
+    <dimen name="card_corner_radius">25dp</dimen>
+    <dimen name="card_height">240dp</dimen>
+    <dimen name="large_text_size">32sp</dimen>
+    <dimen name="profile_width">54dp</dimen>
+    <dimen name="app_bar_size">360dp</dimen>
+</resources>
