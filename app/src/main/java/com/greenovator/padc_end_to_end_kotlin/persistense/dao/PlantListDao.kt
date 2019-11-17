@@ -1,5 +1,6 @@
 package com.greenovator.padc_end_to_end_kotlin.persistense.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -12,13 +13,10 @@ abstract class PlantListDao {
     abstract fun insertPlants(plants: List<PlantVO>): LongArray
 
     @Query("SELECT * FROM plants")
-    abstract fun getAllPlants(): List<PlantVO>
+    abstract fun getAllPlants(): LiveData<List<PlantVO>>
 
     @Query("SELECT * FROM plants WHERE id=:id")
-    abstract fun getFindById(id: Int): PlantVO
+    abstract fun getFindById(id: Int): LiveData<PlantVO>
 
-    fun arePlantExitInDB():Boolean{
-        return getAllPlants().isNotEmpty()
-    }
 
 }

@@ -1,8 +1,16 @@
 package com.greenovator.padc_end_to_end_kotlin.activities
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AnimationUtils
+import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.greenovator.padc_end_to_end_kotlin.R
 import com.greenovator.padc_end_to_end_kotlin.data.vos.PlantVO
@@ -10,11 +18,15 @@ import com.greenovator.padc_end_to_end_kotlin.mvp.presenters.BasePresenter
 import com.greenovator.padc_end_to_end_kotlin.mvp.presenters.DetailPresenter
 import com.greenovator.padc_end_to_end_kotlin.mvp.views.DetailView
 import kotlinx.android.synthetic.main.plant_detail.*
+import kotlinx.android.synthetic.main.plant_detail.user_name
+import kotlinx.android.synthetic.main.plant_list.*
 
 class DetailActivity : BaseActivity(), DetailView {
     override fun displayPlantDetail(plantVO: PlantVO) {
         bindData(plantVO)
     }
+
+
 
     private lateinit var mPresenter: DetailPresenter
 
@@ -31,12 +43,10 @@ class DetailActivity : BaseActivity(), DetailView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.plant_detail)
 
-        mPresenter = DetailPresenter()
+        mPresenter = ViewModelProviders.of(this).get(DetailPresenter::class.java)
         mPresenter.init(this)
         val plantId = intent.getIntExtra(EXTRA_TO_EXTRA, 0);
-        mPresenter.onUIReady(plantId)
-
-        mPresenter.onCreate()
+        mPresenter.onUIReady(plantId,this)
 
     }
 
@@ -52,4 +62,7 @@ class DetailActivity : BaseActivity(), DetailView {
                 .into(detail_image_profile)
         user_name.text = "by "+plantVO.uploadUser.name
     }
+
+
+
 }

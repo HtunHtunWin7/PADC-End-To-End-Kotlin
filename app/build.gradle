@@ -11,7 +11,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.greenovator.padc_end_to_end_kotlin"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -51,5 +51,14 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    //work manager
+    implementation "androidx.work:work-runtime:2.2.0"
+    // live model
+    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
+    //lottie
+    implementation 'com.airbnb.android:lottie:3.1.0'
+
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
 
 }

@@ -16,6 +16,8 @@
         android:src="@drawable/tea3" />
 
     <TextView
+        android:id="@+id/login"
+        android:visibility="gone"
         style="@style/Theme.AppCompat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,6 +29,8 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/login_title"
+        android:visibility="gone"
         android:padding="@dimen/spacing_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,6 +38,8 @@
         android:text="@string/login_label" />
 
     <LinearLayout
+        android:id="@+id/login_linearlayout"
+        android:visibility="gone"
         android:layout_marginStart="@dimen/spacing_XLarge"
         android:layout_gravity="center"
         android:gravity="center"
@@ -72,6 +78,7 @@
             android:background="@drawable/edittext" />
     </LinearLayout>
     <Button
+        android:visibility="gone"
         android:layout_gravity="bottom"
         android:id="@+id/btn_login"
         android:layout_width="match_parent"

@@ -1,5 +1,7 @@
 package com.greenovator.padc_end_to_end_kotlin.data.models
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.greenovator.padc_end_to_end_kotlin.data.vos.LoginVO
 import com.greenovator.padc_end_to_end_kotlin.data.vos.PlantVO
 import com.greenovator.padc_end_to_end_kotlin.utils.ERROR_MESSAGE
@@ -22,22 +24,19 @@ object PlantModelImp : BaseModel(), PlantModel {
         }
     }
 
-    override fun getPlants(onSuccess: (List<PlantVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getPlants(onFailure: (String) -> Unit):LiveData<List<PlantVO>>{
         val plantFromDB = database.plantDao().getAllPlants()
-        if (plantFromDB.isNotEmpty()) {
-            onSuccess(plantFromDB)
-        } else {
+
             dataAgent.getPlants(
                 {
                     database.plantDao().insertPlants(it)
-                    onSuccess(it)
                 },
                 onFailure
             )
-        }
+       return plantFromDB
     }
 
-    override fun getFindById(id: Int): PlantVO {
-        return database.plantDao().getFindById(id)
+    override fun getFindById(id: Int): LiveData<PlantVO> {
+       return database.plantDao().getFindById(id)
     }
 }

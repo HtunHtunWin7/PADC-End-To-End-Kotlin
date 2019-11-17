@@ -18,11 +18,11 @@
         android:padding="@dimen/spacing_double"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageSwitcher
+        <com.airbnb.lottie.LottieAnimationView
+            app:lottie_fileName="favourite_animation.json"
             android:id="@+id/favorite_chip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/favoriate"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
         <TextView
             android:id="@+id/title"
             android:layout_marginTop="@dimen/spacing_XLarge"
